@@ -1,10 +1,11 @@
 require "./Question"
+require "./Player"
 
 class Game
 
   attr_reader :current_player, :players
 
-  def initialize(p1 = {}, p2 = {})
+  def initialize(p1 = Player.new, p2 = Player.new)
     @players = [p1, p2]
     @current_player = 0
   end
@@ -19,23 +20,27 @@ class Game
     self.current_player = (current_player + 1) % self.players.size
   end
 
+  # I/O
+
+
   # PRINTING FUNCTIONS
-  def print_question
-    puts "#{get_prompt} #{Question.new.question}"
+  def get_question
+    "#{get_prompt} #{Question.new.question}"
   end
 
-  def print_incorrect
-    puts "#{get_prompt} Seriously? No!"
+  def get_incorrect
+    "#{get_prompt} Seriously? No!"
   end
 
-  def print_correct
-    puts "#{get_prompt} YES! You are correct."
+  def get_correct
+    "#{get_prompt} YES! You are correct."
   end
 
-  def print_score
-    puts ""
+  def get_game_score
+    "#{get_player_score(0)} vs #{get_player_score(1)}"
   end
 
+  # ====
   private
   def current_player= (index)
     @current_player = index
@@ -43,6 +48,10 @@ class Game
 
   def get_prompt
     "Player #{self.current_player + 1}:"
+  end
+
+  def get_player_score(index)
+    "P#{index + 1}: #{self.players[index].life}/#{Player.MAX_LIFE}"
   end
 
 end

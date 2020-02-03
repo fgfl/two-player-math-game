@@ -4,11 +4,14 @@ class Player
   attr_accessor :name
   attr_reader :life
 
-  def initialize(name)
+  def initialize(name = "")
     self.name = name
     self.life = MAX_LIFE
   end
 
+  def self.MAX_LIFE
+    MAX_LIFE
+  end
 
   def isDead?
     self.life < 1
