@@ -1,5 +1,6 @@
+require "./Question"
+
 class Game
-  MAX_RAND_NUM = 20
 
   attr_reader :current_player, :players
 
@@ -18,9 +19,9 @@ class Game
     self.current_player = (current_player + 1) % self.players.size
   end
 
-  # OTHERS
+  # PRINTING FUNCTIONS
   def print_question
-    puts "#{get_prompt} What does #{generate_number} plus #{generate_number} equal?"
+    puts "#{get_prompt} #{Question.new.question}"
   end
 
   def print_incorrect
@@ -31,16 +32,17 @@ class Game
     puts "#{get_prompt} YES! You are correct."
   end
 
+  def print_score
+    puts ""
+  end
+
   private
   def current_player= (index)
     @current_player = index
   end
 
-  def generate_number
-    rand(MAX_RAND_NUM) + 1
-  end
-
   def get_prompt
     "Player #{self.current_player + 1}:"
   end
+
 end

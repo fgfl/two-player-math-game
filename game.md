@@ -42,7 +42,3 @@ nouns
   - print out the question
   - print out prompts
   - check if winning conditin is met
-
-```
-
-```
