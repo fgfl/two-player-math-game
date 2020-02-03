@@ -19,7 +19,7 @@ class Game
   end
 
   def print_question
-    puts generate_number
+    puts "Player #{self.current_player + 1}: What does #{generate_number} plus #{generate_number} equal?"
   end
 
   private
