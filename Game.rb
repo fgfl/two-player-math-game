@@ -18,8 +18,17 @@ class Game
     self.current_player = (current_player + 1) % self.players.size
   end
 
+  # OTHERS
   def print_question
-    puts "Player #{self.current_player + 1}: What does #{generate_number} plus #{generate_number} equal?"
+    puts "#{get_prompt} What does #{generate_number} plus #{generate_number} equal?"
+  end
+
+  def print_incorrect
+    puts "#{get_prompt} Seriously? No!"
+  end
+
+  def print_correct
+    puts "#{get_prompt} YES! You are correct."
   end
 
   private
@@ -29,5 +38,9 @@ class Game
 
   def generate_number
     rand(MAX_RAND_NUM) + 1
+  end
+
+  def get_prompt
+    "Player #{self.current_player + 1}:"
   end
 end
