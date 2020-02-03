@@ -1,0 +1,12 @@
+nouns
+ - player
+  - store player's life
+  - need to update life
+  - store player's questions
+  - store player answers
+ - game
+  - track who's turn it is
+  - read in player's commands
+  - print out the question
+  - print out prompts
+  - check if winning conditin is met
