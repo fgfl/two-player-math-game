@@ -31,6 +31,8 @@ while true
       puts "#{user_ans} is invalid. Enter a number."
     end
 
+    player.lose_one_life unless game.is_correct?
+
     puts game.get_next_message
 
     if player.isDead?

@@ -49,7 +49,6 @@ class Game
       if player.answer == @qa.answer
         return_msg = get_correct
       else
-        player.lose_one_life
         return_msg = get_incorrect
       end
 
@@ -69,7 +68,7 @@ class Game
     self.current_player = (current_player + 1) % self.players.size
   end
 
-  def isCorrect?
+  def is_correct?
     self.current_player_info.answer == @qa.answer
   end
 
