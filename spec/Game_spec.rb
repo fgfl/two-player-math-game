@@ -32,5 +32,10 @@ RSpec.describe Game do
       expect(@game.get_game_score).to eq("P1: 2/3 vs P2: 3/3")
     end
 
+    it "should return the question phase text" do
+      expect(Game.ANSWER_PHASE).to eq('answer_phase')
+    end
+
+
   end
 end

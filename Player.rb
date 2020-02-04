@@ -1,16 +1,17 @@
 class Player
-  MAX_LIFE = 3
+  @@MAX_LIFE = 3
 
-  attr_accessor :name
+  attr_accessor :name, :answer
   attr_reader :life
 
   def initialize(name = "")
     self.name = name
-    self.life = MAX_LIFE
+    self.life = @@MAX_LIFE
+    self.answer = ""
   end
 
   def self.MAX_LIFE
-    MAX_LIFE
+    @@MAX_LIFE
   end
 
   def isDead?
