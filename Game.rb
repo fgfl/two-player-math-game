@@ -72,6 +72,21 @@ class Game
     self.current_player_info.answer == @qa.answer
   end
 
+
+  # ====
+  private
+  def current_player= (index)
+    @current_player = index
+  end
+
+  def get_prompt
+    "Player #{self.current_player + 1}:"
+  end
+
+  def get_player_score(index)
+    "P#{index + 1}: #{self.players[index].life}/#{Player.MAX_LIFE}"
+  end
+
   # MESSAGE FUNCTIONS
   def get_question
     "#{get_prompt} #{@qa.question}"
@@ -88,19 +103,4 @@ class Game
   def get_game_score
     "#{get_player_score(0)} vs #{get_player_score(1)}"
   end
-
-  # ====
-  private
-  def current_player= (index)
-    @current_player = index
-  end
-
-  def get_prompt
-    "Player #{self.current_player + 1}:"
-  end
-
-  def get_player_score(index)
-    "P#{index + 1}: #{self.players[index].life}/#{Player.MAX_LIFE}"
-  end
-
 end
